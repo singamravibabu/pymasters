@@ -23,3 +23,28 @@ intangible objects - bank account, insurance
 ### Encapsulation
 - Encapsulation is the concept of restricting access to certain attributes and methods to protect the data
 - Attributes prefixed with __ are considered private
+
+### Inheritance
+- Inheritance allows to create a new class (child class) from an existing class (parent class).
+
+```python
+# Parent class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        print(f"{self.name} makes a sound")
+
+# Child class
+class Dog(Animal):
+    def speak(self):    # method overriding
+        prnt(f"{self.name} barks")
+
+# Create objects
+animal = Animal("Generic Animal")
+animal.speak()
+
+dog = Dog("Buddy")
+dog.speak()
+```
