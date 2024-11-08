@@ -20,3 +20,6 @@ intangible objects - bank account, insurance
 - The objects that we create are called "software objects"
 - These objects contain "data" and "functions" that can be performed on them
 
+### Encapsulation
+- Encapsulation is the concept of restricting access to certain attributes and methods to protect the data
+- Attributes prefixed with __ are considered private
