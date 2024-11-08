@@ -39,7 +39,7 @@ class Animal:
 # Child class
 class Dog(Animal):
     def speak(self):    # method overriding
-        prnt(f"{self.name} barks")
+        print(f"{self.name} barks")
 
 # Create objects
 animal = Animal("Generic Animal")
