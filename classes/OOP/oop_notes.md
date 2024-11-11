@@ -48,3 +48,59 @@ animal.speak()
 dog = Dog("Buddy")
 dog.speak()
 ```
+
+### Polymorphism
+> Polymorphism allows methods to have the same name but behave differently based on the object calling them.
+
+**Example**:
+
+```python
+class Bird:
+    def fly(self):
+        print("Bird is flying")
+
+class Penguin(Bird):
+    def fly(self):
+        print("Penguin can't fly but can swim")
+
+def make_it_fly(bird):
+    bird.fly()
+
+# Create objects
+sparrow = Bird()
+penguin = Penguin()
+
+make_it_fly(sparrow)    # Output: Bird is flying
+make_it_fly(penguin)    # Output: Penguin can't fly but can swim
+```
+
+### Abstraction
+> Abstraction focuses on hiding implementation details and exposing only the functionality.
+
+**Example: Using Abstract Base Class**
+
+```python
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+    
+class Car(Vehicle):
+    def start(self):
+        print("Car engine started")
+
+class Bike(Vehicle):
+    def start(self):
+        print("Bike engine started")
+        
+# Create objects
+car = Car()
+car.start()
+
+bike = Bike()
+bike.start()
+```
+
+### Simple Library Management System using OOP concepts
