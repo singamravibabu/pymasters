@@ -158,3 +158,120 @@ library.list_books()
 library.return_book("21 Indespensible Laws of Leadership")
 library.list_books()
 ```
+
+## Class Methods, Static Methods, and Instance Methods
+In Python, methods can be classified into three types:
+1. Instance Methods: Operate on instances of a class.
+2. Class Methods: Operate on the class itself, not on instance.
+3. Static Methods: Do not operate on instances or the class; they are utility functions related to the class.
+
+### Instance Methods
+These are the most common types of methods that operate on an instance of the class.
+
+```python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+    # Instance method
+    def bark(self):
+        print(f"{self.name} says Woof!")
+
+
+# Using instance methods
+dog1 = Dog("Buddy", 3)
+dog1.bark()     # Output: Buddy says Woof!
+```
+
+### Class Methods
+Class methods have access to the class itself (not instances). They are defined using the @classmethod decorator.
+
+```python
+class Animal:
+    species = "Mannal"
+    
+    def __init__(self, name):
+        self.name = name
+    
+    @classmethod
+    def set_species(cls, species_name):
+        cls.species = species_name
+
+# Using class method
+Animal.set_species("Reptile")
+print(Animal.species)       # Output: Reptile
+```
+
+**Explanation:**
+- `set_species` is a class method that changes the class attribute `species`.
+
+### Static Methods
+Static methods do not access class attributes or instance attributes. They are utility functions.
+
+```python
+class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+# Using static method
+result = MathUtils.add(5, 10)
+print(result)       # Output: 15
+```
+
+**Explanation:**
+- `add()` is a static method because it doesn't operate on any instance or class attributes.
+
+## Inheritance and Method Overriding
+Inheritance allows to define a class that inherits all the methods and properties from another class. Method overriding allows a child class to provide a specific implementation of a method that is already defined in its parent class.
+
+### Multilevel Inheritance Example
+
+```python
+# Parent class
+class Vehicle:
+    def start(self):
+        print("Vehicle is starting...")
+
+# Child class
+class Car(Vehicle):
+    def start(self):
+        print("Car is starting...")
+
+# Grandchild class
+class ElectricCar(Car):
+    def start(self):
+        print("Electric car is starting silently...")
+
+# Create an object of ElectricCar
+tesla = ElectricCar()
+tesla.start()   # Output: Electric car is starting silently...
+```
+
+## Super() Function
+The `super()` function is used to call methods of a parent class.
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Employee(Person):
+    def __init__(self, name, age, employee_id):
+        super().__init__(name, age) # calling the parent class constructor
+        self.employee_id = employee_id
+        
+# Creating an Employee object
+emp = Employee("Alice", 30, "E12345")
+print(f"Name: {emp.name}, Age: {emp.age}, ID: {emp.employee_id}")
+```
+
+**Output:**
+```yaml
+Name: Alice, Age: 30, ID: E12345
+```
+
+**Explanation:**
+- `super()` allows you to access methods of the parent class, which is helpful when you want to extend or modify the parent class behavior.
