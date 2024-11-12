@@ -280,7 +280,32 @@ Name: Alice, Age: 30, ID: E12345
 Magic methods, also known as dunder methods (double underscore), allow us to define how our objects behave with built-in Python operations like printing, adding, etc.
 
 ### Common Magic Methods
-1. __init__(self): Constructor method.
-2. __str__(self): Defines behavior for print().
-3. __add__(self, other): Defines behavior for + operator.
-4. __len__(self): Defines behavior for len() function.
+1. `__init__(self)`: Constructor method.
+2. `__str__(self)`: Defines behavior for `print()`.
+3. `__add__(self, other)`: Defines behavior for `+` operator.
+4. `__len__(self)`: Defines behavior for `len()` function.
+
+**Example:** Using `__str__()` and `__add__()`
+```python
+class Book:
+    def __init__(self, title, pages):
+        self.title = title
+        self.pages = pages
+    
+    def __str__(self):
+        return f"'{self.title}' has {self.pages} pages"
+    
+    def __add__(self, other):
+        return self.pages + other.pages
+    
+# Creating two book objects
+book1 = Book("Python Basics", 200)
+book2 = Book("Advanced Python", 300)
+
+# Using __str__() method
+print(book1)    # Output: 'Python Basics' has 200 pages
+
+# Using __add__() method
+total_pages = book1 + book2
+print(f"Total pages: {total_pages}")    # Output: Total pages: 500
+```
