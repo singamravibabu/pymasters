@@ -309,3 +309,8 @@ print(book1)    # Output: 'Python Basics' has 200 pages
 total_pages = book1 + book2
 print(f"Total pages: {total_pages}")    # Output: Total pages: 500
 ```
+
+## Decorators in OOP
+Decorators are a way to add extra functionality to methods without modifying their code.
+
+**Example: Using Property Decorator**
